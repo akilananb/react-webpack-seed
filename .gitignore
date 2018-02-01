@@ -62,3 +62,5 @@ typings/
 .DS_Store
 .vscode/
 src/*/**/.DS_Store
+.cache-loader/
+dist

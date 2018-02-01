@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const HappyPack = require('happypack');
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const { CheckerPlugin } = require('awesome-typescript-loader');
 
 module.exports = {
     entry: ['./src/index.tsx' ],
@@ -15,7 +15,15 @@ module.exports = {
     },
     module: {
         rules: [
-            { test: /\.(tsx|ts)?$/, loader: 'happypack/loader?id=ts', exclude: /(node_modules|bower_components|test)/ },
+          {
+            test: /\.(tsx|ts)?$/,
+            loaders: [
+              'react-hot-loader/webpack',
+              'cache-loader',
+              'awesome-typescript-loader'
+            ],
+            exclude: /(node_modules|bower_components|test)/
+          },
             {
                 // Capture eot, ttf, woff, and woff2
                 test: /\.(eot|ttf|woff|woff2|svg)(\?v=\d+\.\d+\.\d+)?$/,
@@ -53,7 +61,7 @@ module.exports = {
                 }
             ]
         }),
-        new ForkTsCheckerWebpackPlugin({ checkSyntacticErrors: true }),
+        new CheckerPlugin(),
         new webpack.optimize.UglifyJsPlugin({
           uglifyOptions: {
             ie8: false,
