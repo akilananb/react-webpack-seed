@@ -3,26 +3,30 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import App from './App';
-
-ReactDOM.render(
+const mount = document.getElementById('root');
+if (process.env.NODE_ENV !== 'production') {
+  ReactDOM.render(
     <AppContainer>
-        <App />
+      <App />
     </AppContainer>,
-    document.getElementById('root') as HTMLElement
-);
+    mount as HTMLElement
+  );
 
-interface RequireImport {
+  interface RequireImport {
     default: any;
-}
+  }
 
-if (module.hot) {
+  if (module.hot) {
     module.hot.accept('./App', () => {
-        const NextApp = require<RequireImport>('./App').default;
-        ReactDOM.render(
-            <AppContainer>
-                <NextApp />
-            </AppContainer>,
-            document.getElementById('root')
-        );
+      const NextApp = require<RequireImport>('./App').default;
+      ReactDOM.render(
+        <AppContainer>
+          <NextApp />
+        </AppContainer>,
+        mount as HTMLElement
+      );
     });
+  }
+} else {
+  ReactDOM.render(<App />, mount as HTMLElement);
 }
