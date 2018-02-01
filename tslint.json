@@ -35,7 +35,7 @@
         "one-line": [ true, "check-catch", "check-else", "check-open-brace", "check-whitespace" ],
         "quotemark": [ true, "single", "jsx-double" ],
         "radix": true,
-        "semicolon": [ true, "always" ],
+        "semicolon": [true, "always", "ignore-bound-class-methods"],
         "switch-default": true,
 
         "trailing-comma": false,
@@ -47,8 +47,6 @@
             {
                 "call-signature": "nospace",
                 "index-signature": "nospace",
-                "parameter": "nospace",
-                "property-declaration": "nospace",
                 "variable-declaration": "nospace"
             }
         ],

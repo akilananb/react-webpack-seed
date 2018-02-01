@@ -8,9 +8,8 @@ module.exports = {
     output: {
         path: __dirname,
         publicPath: '/',
-        filename: 'dist/bundle.js'
+        filename: '../dist/bundle.js'
     },
-    devtool: 'source-map',
     resolve: {
         extensions: [ '.ts', '.tsx', '.js', '.json' ]
     },
@@ -44,7 +43,6 @@ module.exports = {
         'react-dom': 'ReactDOM'
     },
     plugins: [
-        new ProgressBarPlugin(),
         new HappyPack({
             id: 'ts',
             threads: 2,
@@ -58,11 +56,5 @@ module.exports = {
         new ForkTsCheckerWebpackPlugin({ checkSyntacticErrors: true }),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin()
-    ],
-    devServer: {
-        host: 'localhost',
-        port: 3000,
-        historyApiFallback: true,
-        hot: true
-    }
+    ]
 };
