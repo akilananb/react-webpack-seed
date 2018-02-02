@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
-const HappyPack = require('happypack');
 const { CheckerPlugin } = require('awesome-typescript-loader');
 
 module.exports = {

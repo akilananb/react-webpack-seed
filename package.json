@@ -25,6 +25,7 @@
         "@types/webpack-env": "^1.13.5",
         "autodll-webpack-plugin": "^0.3.8",
         "awesome-typescript-loader": "^3.4.1",
+        "cache-loader": "^1.2.0",
         "css-loader": "^0.28.9",
         "enzyme": "^3.3.0",
         "enzyme-adapter-react-16": "^1.1.1",
