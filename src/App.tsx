@@ -7,22 +7,15 @@ import {
 } from 'react-router-dom';
 
 import createHistory from 'history/createBrowserHistory';
-import configureStore from './store';
+import configureStore from './state/store';
 import Home from './components/home';
 import { colors } from './theme';
 
-interface TodoTextInputProps {}
-interface TodoTextInputState {}
+interface IAppProps {}
+interface IAppProps {}
 const configuredStore = configureStore();
 
-const global = injectGlobal`
-body{
-  margin:0;
-  padding:.2rem;
-  font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", sans-serif;
-}`;
-
-class App extends React.Component<TodoTextInputProps, TodoTextInputState> {
+class App extends React.Component<IAppProps, IAppProps> {
 
   constructor(props: any, context: any) {
     super(props, context);

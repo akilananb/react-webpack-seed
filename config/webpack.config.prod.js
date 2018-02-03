@@ -47,13 +47,15 @@ module.exports = {
   },
   externals: {
     react: 'React',
-    'react-dom': 'ReactDOM'
+    'react-dom': 'ReactDOM',
   },
   plugins: [
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
     new CheckerPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.LoaderOptionsPlugin( { minimize: true, debug: false } ),
     new webpack.optimize.UglifyJsPlugin({
       uglifyOptions: {
         ie8: false,

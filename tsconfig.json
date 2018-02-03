@@ -16,7 +16,7 @@
       "strictNullChecks": true
     },
     "include": [
-        "./src/**/*"
+        "./src/**/*.ts?(x)"
     ],
     "exclude": [
       "node_modules",

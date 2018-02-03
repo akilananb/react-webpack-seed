@@ -9,7 +9,9 @@
     "scripts": {
         "build": "./node_modules/.bin/webpack -p --config config/webpack.config.prod.js",
         "start": "node_modules/webpack-dev-server/bin/webpack-dev-server.js --config config/webpack.config.dev.js",
-        "test": "jest --env=jsdom"
+        "test": "jest --env=jsdom",
+        "lint": "node_modules/tslint/bin/tslint --config tslint.json --project tsconfig.json",
+        "ci": "yarn test && yarn lint"
     },
     "dependencies": {
         "@types/react": "^16.0.35",
@@ -26,6 +28,7 @@
         "react-router": "^4.2.0",
         "react-router-dom": "^4.2.2",
         "redux": "^3.7.2",
+        "redux-actions": "^2.2.1",
         "styled-components": "^3.1.4"
     },
     "devDependencies": {
