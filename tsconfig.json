@@ -1,4 +1,3 @@
-
 {
     "compilerOptions": {
       "outDir": "/dist",
@@ -13,7 +12,9 @@
       "noImplicitReturns": true,
       "noImplicitThis": true,
       "noImplicitAny": true,
-      "strictNullChecks": true
+      "strictNullChecks": true,
+      "suppressImplicitAnyIndexErrors": true,
+      "noUnusedLocals": true
     },
     "include": [
         "./src/**/*.ts?(x)"

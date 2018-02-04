@@ -1,36 +1,32 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import { Component } from 'react';
 import { AppContainer } from 'react-hot-loader';
 import { Provider } from 'react-redux';
-import createHistory from 'history/createBrowserHistory';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import configureStore from './state/store';
 import { Root } from './views/layouts';
 
-interface IAppProps {}
-interface IAppProps {}
-interface IRequireImport {
-  default: any;
-}
-
 const mount: any = document.getElementById('root');
 const configuredStore = configureStore();
 
-class App extends React.Component<IAppProps, IAppProps> {
+class App extends Component<any> {
   constructor(props: any, context: any) {
     super(props, context);
-    this.state = {};
   }
   render() {
     return (
       <Provider store={configuredStore}>
-        <div>
-          Welcome to react redux starter kit
-        </div>
+        <Router>
+           <Root />
+        </Router>
       </Provider>
     );
   }
 }
+
+export default App;
 
 if (process.env.NODE_ENV !== 'production') {
   if (module.hot) {

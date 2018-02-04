@@ -1,10 +1,12 @@
 import { applyMiddleware, createStore, combineReducers } from 'redux';
 import * as reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
-import * as reducers from '../ducks';
-import IStoreState from './IStoreState';
+import { auth } from '../ducks';
+import { IStoreState }  from '../../types';
 
 export default function configureStore() {
-  const rootReducer = combineReducers<IStoreState>(reducers);
+  const rootReducer = combineReducers<IStoreState>({
+    isAuthenticated: auth
+  });
   const store = createStore<IStoreState>(
     rootReducer,
     applyMiddleware(reduxImmutableStateInvariant.default())

@@ -1,8 +1,10 @@
-import { applyMiddleware, createStore, combineReducers } from 'redux';
-import * as reducers from '../ducks';
-import IStoreState from './IStoreState';
+import { createStore, combineReducers } from 'redux';
+import { auth } from '../ducks';
+import { IStoreState } from '../../types';
 
 export default function configureStore() {
-  const rootReducer = combineReducers<IStoreState>(reducers);
+  const rootReducer = combineReducers<IStoreState>({
+    isAuthenticated: auth
+  });
   return createStore<IStoreState>(rootReducer);
 }
