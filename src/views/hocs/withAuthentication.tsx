@@ -47,7 +47,7 @@ const withAuthentication = ({ debug = false }: IOptions = {}) => <
   };
 
   const mapStateToProps = (state: any) => ({
-    isAuthenticated: state.isAuthenticated
+    isAuthenticated: state.auth.isAuthenticated
   });
 
   return connect(mapStateToProps)(result);

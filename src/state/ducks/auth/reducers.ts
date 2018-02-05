@@ -1,12 +1,14 @@
 import { handleAction, Action } from 'redux-actions';
 import { doLogin } from './actions';
 
-const isAuthenticated: boolean = false;
+const initialState = { 
+  isAuthenticated : false
+};
 
 export default handleAction<any, any>(
   doLogin,
   (state: any, action: Action<any>) => ({
-    isAuthenticated
+    isAuthenticated: true
   }),
-  isAuthenticated
+  initialState
 );

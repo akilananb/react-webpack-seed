@@ -1,6 +1,6 @@
 import { createAction } from 'redux-actions';
 
-const doLogin = createAction('LOGIN');
-const doLogout = createAction('LOGOUT');
+const doLogin: any = createAction('LOGIN');
+const doLogout: any = createAction('LOGOUT');
 
 export { doLogin, doLogout };
